@@ -7,448 +7,496 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: 'Poppins', sans-serif;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:'Poppins',sans-serif;
     }
 
-    body {
-      background: #07111f;
-      color: white;
-      overflow-x: hidden;
+    :root{
+      --main:#00e5ff;
+      --main2:#0084ff;
+      --dark:#07111f;
+      --card:rgba(255,255,255,0.05);
+      --text:#dbe6f0;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      background: rgba(0, 255, 255, 0.15);
-      border-radius: 50%;
-      top: -150px;
-      left: -100px;
-      filter: blur(120px);
-      z-index: -1;
+    body{
+      background:var(--dark);
+      color:white;
+      overflow-x:hidden;
     }
 
-    body::after {
-      content: "";
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      background: rgba(0, 89, 255, 0.12);
-      border-radius: 50%;
-      bottom: -150px;
-      right: -100px;
-      filter: blur(120px);
-      z-index: -1;
+    /* BACKGROUND LIGHTS */
+
+    body::before{
+      content:"";
+      position:fixed;
+      width:450px;
+      height:450px;
+      background:rgba(0,229,255,0.12);
+      border-radius:50%;
+      top:-120px;
+      left:-120px;
+      filter:blur(120px);
+      z-index:-1;
     }
 
-    nav {
-      width: 100%;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.35);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    body::after{
+      content:"";
+      position:fixed;
+      width:450px;
+      height:450px;
+      background:rgba(0,132,255,0.12);
+      border-radius:50%;
+      bottom:-120px;
+      right:-120px;
+      filter:blur(120px);
+      z-index:-1;
     }
 
-    .logo h1 {
-      font-size: 30px;
-      color: #00e5ff;
-      font-weight: 800;
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:18px 8%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(0,0,0,0.3);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      transition:0.4s;
     }
 
-    .logo p {
-      font-size: 13px;
-      color: #c6d2e1;
+    .logo h1{
+      color:var(--main);
+      font-size:30px;
+      font-weight:800;
     }
 
-    nav ul {
-      display: flex;
-      gap: 35px;
-      list-style: none;
+    .logo p{
+      font-size:13px;
+      color:#c7d3df;
     }
 
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: 0.3s;
-      position: relative;
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:35px;
     }
 
-    nav ul li a:hover {
-      color: #00e5ff;
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-weight:500;
+      transition:0.3s;
+      position:relative;
     }
 
-    .hero {
-      min-height: 100vh;
-      padding: 150px 8% 100px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 60px;
-      align-items: center;
+    nav ul li a:hover{
+      color:var(--main);
     }
 
-    .hero-text h2 {
-      font-size: 70px;
-      line-height: 1.1;
-      margin-bottom: 25px;
+    nav ul li a::after{
+      content:"";
+      position:absolute;
+      width:0%;
+      height:2px;
+      background:var(--main);
+      left:0;
+      bottom:-5px;
+      transition:0.4s;
     }
 
-    .hero-text span {
-      color: #00e5ff;
+    nav ul li a:hover::after{
+      width:100%;
     }
 
-    .hero-text p {
-      color: #c7d3df;
-      font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 35px;
+    /* HERO SECTION */
+
+    .hero{
+      min-height:100vh;
+      padding:150px 8% 80px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:60px;
+      align-items:center;
     }
 
-    .buttons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+    .hero-text h2{
+      font-size:68px;
+      line-height:1.1;
+      margin-bottom:25px;
     }
 
-    .btn {
-      padding: 16px 34px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.4s;
-      display: inline-block;
+    .hero-text span{
+      color:var(--main);
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #00e5ff, #0084ff);
-      color: black;
-      box-shadow: 0 10px 30px rgba(0,229,255,0.3);
+    .hero-text p{
+      color:#c7d3df;
+      line-height:1.9;
+      font-size:18px;
+      margin-bottom:35px;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-4px);
+    .buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
     }
 
-    .btn-secondary {
-      border: 2px solid #00e5ff;
-      color: #00e5ff;
+    .btn{
+      padding:16px 32px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.4s;
+      display:inline-block;
     }
 
-    .btn-secondary:hover {
-      background: #00e5ff;
-      color: black;
+    .btn-primary{
+      background:linear-gradient(135deg,var(--main),var(--main2));
+      color:black;
+      box-shadow:0 10px 30px rgba(0,229,255,0.25);
     }
 
-    .hero-image {
-      position: relative;
+    .btn-primary:hover{
+      transform:translateY(-5px);
     }
 
-    .hero-image {
-      position: relative;
-      height: 520px;
-      overflow: hidden;
-      border-radius: 30px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      border: 2px solid rgba(255,255,255,0.08);
+    .btn-secondary{
+      border:2px solid var(--main);
+      color:var(--main);
     }
 
-    .hero-image img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      animation: slider 24s ease-in-out infinite;
+    .btn-secondary:hover{
+      background:var(--main);
+      color:black;
     }
 
-    .hero-image img:nth-child(1) {
-      animation-delay: 0s;
+    /* HERO IMAGE SLIDER */
+
+    .hero-image{
+      position:relative;
+      height:520px;
+      overflow:hidden;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 20px 60px rgba(0,0,0,0.4);
     }
 
-    .hero-image img:nth-child(2) {
-      animation-delay: 6s;
+    .hero-image img{
+      position:absolute;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      animation:slider 18s infinite;
     }
 
-    .hero-image img:nth-child(3) {
-      animation-delay: 12s;
+    .hero-image img:nth-child(1){
+      animation-delay:0s;
     }
 
-    @keyframes slider {
-      0% {
-        opacity: 0;
-        transform: scale(1.12);
+    .hero-image img:nth-child(2){
+      animation-delay:6s;
+    }
+
+    .hero-image img:nth-child(3){
+      animation-delay:12s;
+    }
+
+    @keyframes slider{
+
+      0%{
+        opacity:0;
+        transform:scale(1.1);
       }
 
-      8% {
-        opacity: 1;
-        transform: scale(1.08);
+      8%{
+        opacity:1;
       }
 
-      30% {
-        opacity: 1;
-        transform: scale(1);
+      30%{
+        opacity:1;
+        transform:scale(1);
       }
 
-      38% {
-        opacity: 0;
-        transform: scale(0.98);
-      }
+      40%{
+        opacity:0;
       }
 
-      100% {
-        opacity: 0;
-        transform: scale(1);
-      }
-    }
-
-    .hero-image img {
-      width: 100%;
-      border-radius: 30px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      border: 2px solid rgba(255,255,255,0.08);
-    }
-
-    section {
-      padding: 100px 8%;
-    }
-
-    .title {
-      text-align: center;
-      margin-bottom: 70px;
-    }
-
-    .title h2 {
-      font-size: 52px;
-      color: #00e5ff;
-      margin-bottom: 15px;
-    }
-
-    .title p {
-      color: #c6d2e1;
-      font-size: 18px;
-    }
-
-    .about-box {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 30px;
-      padding: 50px;
-      line-height: 1.9;
-      font-size: 18px;
-      color: #d5e0ea;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
-    }
-
-    .levels {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .level-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 28px;
-      padding: 40px;
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.4s;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.35);
-    }
-
-    .level-card:hover {
-      transform: translateY(-10px);
-      border-color: #00e5ff;
-    }
-
-    .level-card h3 {
-      color: #00e5ff;
-      font-size: 34px;
-      margin-bottom: 18px;
-    }
-
-    .level-card p {
-      color: #d5e0ea;
-      line-height: 1.8;
-    }
-
-    .combo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 35px;
-    }
-
-    .combo-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 30px;
-      padding: 40px;
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.4s;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
-    }
-
-    .combo-card:hover {
-      transform: translateY(-12px);
-      border-color: #00e5ff;
-    }
-
-    .combo-card::before {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      background: rgba(0,229,255,0.12);
-      border-radius: 50%;
-      top: -80px;
-      right: -60px;
-    }
-
-    .combo-name {
-      font-size: 50px;
-      font-weight: 800;
-      color: #00e5ff;
-      margin-bottom: 10px;
-    }
-
-    .combo-title {
-      font-size: 22px;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .combo-card p {
-      line-height: 1.8;
-      color: #d4dfe8;
-      margin-bottom: 25px;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .skill {
-      padding: 10px 18px;
-      border-radius: 50px;
-      background: rgba(255,255,255,0.08);
-      font-size: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .programming {
-      background: rgba(0,255,140,0.14);
-      color: #65ffbf;
-      border-color: rgba(0,255,140,0.3);
-      font-weight: 600;
-    }
-
-    .register-box {
-      background: rgba(255,255,255,0.05);
-      border-radius: 35px;
-      padding: 60px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-      backdrop-filter: blur(12px);
-    }
-
-    form {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .full {
-      grid-column: 1 / -1;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 18px;
-      border-radius: 15px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(0,0,0,0.3);
-      color: white;
-      outline: none;
-      font-size: 15px;
-      transition: 0.3s;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #00e5ff;
-      box-shadow: 0 0 20px rgba(0,229,255,0.2);
-    }
-
-    textarea {
-      resize: none;
-      height: 150px;
-    }
-
-    .submit-btn {
-      background: linear-gradient(135deg, #00e5ff, #0084ff);
-      color: black;
-      border: none;
-      cursor: pointer;
-      font-size: 18px;
-      font-weight: 700;
-      transition: 0.4s;
-    }
-
-    .submit-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,229,255,0.3);
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: #c2ced9;
-      margin-top: 50px;
-    }
-
-    @media(max-width: 900px) {
-      .hero-text h2 {
-        font-size: 50px;
+      100%{
+        opacity:0;
       }
 
-      nav ul {
-        display: none;
-      }
-
-      .register-box {
-        padding: 35px;
-      }
-
-      section {
-        padding: 80px 6%;
-      }
     }
+
+    /* GENERAL SECTION */
+
+    section{
+      padding:100px 8%;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .title h2{
+      font-size:50px;
+      color:var(--main);
+      margin-bottom:15px;
+    }
+
+    .title p{
+      color:#c7d3df;
+    }
+
+    /* ABOUT */
+
+    .about-box{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px;
+      padding:45px;
+      line-height:2;
+      color:var(--text);
+      box-shadow:0 15px 40px rgba(0,0,0,0.3);
+      backdrop-filter:blur(10px);
+    }
+
+    /* STATS */
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+      margin-top:50px;
+    }
+
+    .stat-card{
+      background:var(--card);
+      padding:35px;
+      border-radius:25px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.4s;
+    }
+
+    .stat-card:hover{
+      transform:translateY(-8px);
+      border-color:var(--main);
+    }
+
+    .stat-card h3{
+      font-size:42px;
+      color:var(--main);
+      margin-bottom:10px;
+    }
+
+    .stat-card p{
+      color:#d5e0ea;
+    }
+
+    /* LEVELS */
+
+    .levels{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .level-card{
+      background:var(--card);
+      padding:40px;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.4s;
+    }
+
+    .level-card:hover{
+      transform:translateY(-10px);
+      border-color:var(--main);
+    }
+
+    .level-card h3{
+      color:var(--main);
+      font-size:32px;
+      margin-bottom:18px;
+    }
+
+    .level-card p{
+      color:#d4dfe8;
+      line-height:1.9;
+    }
+
+    /* COMBINATIONS */
+
+    .combo-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:35px;
+    }
+
+    .combo-card{
+      background:var(--card);
+      border-radius:30px;
+      padding:40px;
+      border:1px solid rgba(255,255,255,0.08);
+      position:relative;
+      overflow:hidden;
+      transition:0.4s;
+    }
+
+    .combo-card:hover{
+      transform:translateY(-10px);
+      border-color:var(--main);
+    }
+
+    .combo-card::before{
+      content:"";
+      position:absolute;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:rgba(0,229,255,0.1);
+      top:-70px;
+      right:-60px;
+    }
+
+    .combo-name{
+      font-size:55px;
+      color:var(--main);
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .combo-title{
+      font-size:22px;
+      font-weight:600;
+      margin-bottom:20px;
+    }
+
+    .combo-card p{
+      line-height:1.9;
+      color:#d4dfe8;
+      margin-bottom:25px;
+    }
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .skill{
+      padding:10px 18px;
+      border-radius:50px;
+      background:rgba(255,255,255,0.08);
+      font-size:14px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .programming{
+      background:rgba(0,255,140,0.14);
+      color:#65ffbf;
+      border-color:rgba(0,255,140,0.2);
+      font-weight:600;
+    }
+
+    /* NOTICE */
+
+    .notice{
+      margin-top:40px;
+      padding:20px;
+      border-radius:16px;
+      background:rgba(0,255,140,0.08);
+      border:1px solid rgba(0,255,140,0.15);
+      color:#bfffe0;
+      text-align:center;
+    }
+
+    /* CONTACT */
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .contact-card{
+      background:var(--card);
+      padding:35px;
+      border-radius:25px;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.4s;
+    }
+
+    .contact-card:hover{
+      transform:translateY(-8px);
+      border-color:var(--main);
+    }
+
+    .contact-card h3{
+      margin-bottom:15px;
+      color:var(--main);
+    }
+
+    .contact-card p{
+      color:#d5e0ea;
+      line-height:1.8;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:35px;
+      text-align:center;
+      color:#c7d3df;
+      border-top:1px solid rgba(255,255,255,0.08);
+      margin-top:50px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .hero-text h2{
+        font-size:48px;
+      }
+
+      nav ul{
+        display:none;
+      }
+
+      section{
+        padding:80px 6%;
+      }
+
+    }
+
   </style>
 </head>
 <body>
 
+  <!-- NAVBAR -->
+
   <nav>
+
     <div class="logo">
       <h1>ASPADE</h1>
       <p>Ngororero Secondary School</p>
@@ -457,195 +505,294 @@
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#levels">Levels</a></li>
       <li><a href="#combinations">Combinations</a></li>
-      <li><a href="#register">Register</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+
   </nav>
 
+  <!-- HERO -->
+
   <section class="hero" id="home">
+
     <div class="hero-text">
-      <h2>Building Future <span>Leaders</span> Through Modern Education</h2>
+
+      <h2>
+        Building Future
+        <span>Leaders</span>
+      </h2>
 
       <p>
-        ASPADE Ngororero is a modern secondary school that provides quality education,
-        innovation, discipline, and technology-focused learning for both O'Level and Advanced Level students.
+        ASPADE Ngororero Secondary School provides quality education,
+        discipline, technology-focused learning, and modern teaching methods
+        for O'Level and Advanced Level students.
       </p>
 
       <div class="buttons">
-        <a href="#register" class="btn btn-primary">Register Student</a>
-        <a href="#combinations" class="btn btn-secondary">Explore Combinations</a>
+        <a href="#combinations" class="btn btn-primary">Explore Combinations</a>
+
+        <a href="#contact" class="btn btn-secondary">Contact School</a>
       </div>
+
     </div>
 
     <div class="hero-image">
-      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1400&auto=format&fit=crop" alt="School Campus">
+
+      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1400&auto=format&fit=crop" alt="School">
 
       <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1400&auto=format&fit=crop" alt="Students">
 
       <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?q=80&w=1400&auto=format&fit=crop" alt="Classroom">
+
     </div>
+
   </section>
 
+  <!-- ABOUT -->
+
   <section id="about">
+
     <div class="title">
       <h2>About ASPADE</h2>
-      <p>Empowering students with education, technology, and discipline.</p>
+
+      <p>
+        Empowering students through education, discipline, and innovation.
+      </p>
     </div>
 
     <div class="about-box">
-      ASPADE Ngororero Secondary School offers excellent learning opportunities for students in O'Level and Advanced Level.
-      The school encourages leadership, academic excellence, creativity, and practical computer skills.
-      Through modern teaching methods and a supportive environment, students are prepared for university,
-      technology careers, and future innovation.
+
+      ASPADE Ngororero Secondary School is committed to preparing students
+      for university studies, leadership, innovation, and modern careers.
+      The school promotes academic excellence, discipline, creativity,
+      computer literacy, and personal growth through a supportive learning environment.
+
     </div>
+
+    <div class="stats">
+
+      <div class="stat-card">
+        <h3>500+</h3>
+        <p>Students</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>20+</h3>
+        <p>Qualified Teachers</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>2</h3>
+        <p>Advanced Combinations</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>100%</h3>
+        <p>Student Support</p>
+      </div>
+
+    </div>
+
   </section>
 
-  <section>
+  <!-- LEVELS -->
+
+  <section id="levels">
+
     <div class="title">
       <h2>School Levels</h2>
-      <p>Quality education pathways designed for student success.</p>
+
+      <p>
+        Quality learning pathways designed for student success.
+      </p>
     </div>
 
     <div class="levels">
+
       <div class="level-card">
+
         <h3>O'Level</h3>
+
         <p>
-          Strong academic foundation in Mathematics, Sciences, ICT, Languages,
-          and Humanities to prepare students for Advanced Level education.
+          Strong foundation in Mathematics, Sciences,
+          ICT, Languages, and Humanities to prepare students
+          for Advanced Level education.
         </p>
+
       </div>
 
       <div class="level-card">
+
         <h3>Advanced Level</h3>
+
         <p>
-          Specialized combinations such as MCE and MEG help students develop skills
-          in technology, economics, programming, geography, and research.
+          Specialized combinations including MCE and MEG
+          help students develop analytical, technological,
+          and business-related skills.
         </p>
+
       </div>
+
     </div>
+
   </section>
 
+  <!-- COMBINATIONS -->
+
   <section id="combinations">
+
     <div class="title">
       <h2>Academic Combinations</h2>
-      <p>Choose the best pathway for your future career.</p>
+
+      <p>
+        Choose the best pathway for your future career.
+      </p>
     </div>
 
     <div class="combo-grid">
 
+      <!-- MCE -->
+
       <div class="combo-card">
+
         <div class="combo-name">MCE</div>
-        <div class="combo-title">Mathematics • Computer Science • Economics</div>
+
+        <div class="combo-title">
+          Mathematics • Computer Science • Economics
+        </div>
 
         <p>
-          MCE is designed for students interested in technology, software development,
-          business, and innovation. Students gain strong analytical and programming skills.
+          MCE is designed for students interested in technology,
+          software development, innovation, and business.
         </p>
 
         <div class="skills">
+
           <div class="skill programming">C Programming</div>
+
           <div class="skill programming">C++ Programming</div>
-          <div class="skill">Computer Applications</div>
-          <div class="skill">Economics</div>
-          <div class="skill">Mathematics</div>
+
           <div class="skill">Web Development</div>
+
+          <div class="skill">Computer Applications</div>
+
+          <div class="skill">Economics</div>
+
+          <div class="skill">Mathematics</div>
+
         </div>
+
       </div>
+
+      <!-- MEG -->
 
       <div class="combo-card">
+
         <div class="combo-name">MEG</div>
-        <div class="combo-title">Mathematics • Economics • Geography</div>
+
+        <div class="combo-title">
+          Mathematics • Economics • Geography
+        </div>
 
         <p>
-          MEG prepares students for careers in economics, finance, geography,
-          development studies, statistics, and business management.
+          MEG prepares students for careers in economics,
+          finance, statistics, development studies,
+          and business management.
         </p>
 
         <div class="skills">
+
           <div class="skill">Statistics</div>
+
           <div class="skill">Economic Analysis</div>
-          <div class="skill">Map Reading</div>
+
           <div class="skill">Research Skills</div>
-          <div class="skill">Mathematics</div>
+
+          <div class="skill">Map Reading</div>
+
           <div class="skill">Business Studies</div>
+
+          <div class="skill">Mathematics</div>
+
         </div>
+
       </div>
 
     </div>
+
+    <div class="notice">
+      This website is fully frontend-based and does not require any backend server.
+      Forms only display messages without storing data.
+    </div>
+
   </section>
 
-  <section id="register">
+  <!-- CONTACT -->
+
+  <section id="contact">
+
     <div class="title">
-      <h2>Student Registration</h2>
-      <p>Apply for O'Level or Advanced Level combinations.</p>
+      <h2>Contact Information</h2>
+
+      <p>
+        Reach out to ASPADE Ngororero Secondary School.
+      </p>
     </div>
 
-    <div class="register-box">
-      <form id="registrationForm">
+    <div class="contact-grid">
 
-        <div>
-          <input type="text" placeholder="Full Name" required>
-        </div>
+      <div class="contact-card">
+        <h3>Location</h3>
+        <p>
+          Ngororero District, Rwanda
+        </p>
+      </div>
 
-        <div>
-          <input type="email" placeholder="Email Address" required>
-        </div>
+      <div class="contact-card">
+        <h3>Email</h3>
+        <p>
+          aspade@example.com
+        </p>
+      </div>
 
-        <div>
-          <input type="tel" placeholder="Phone Number" required>
-        </div>
+      <div class="contact-card">
+        <h3>Phone</h3>
+        <p>
+          +250 7XX XXX XXX
+        </p>
+      </div>
 
-        <div>
-          <select required>
-            <option value="">Choose Level</option>
-            <option>O'Level</option>
-            <option>Advanced Level</option>
-          </select>
-        </div>
-
-        <div class="full">
-          <select required>
-            <option value="">Choose Combination</option>
-            <option>MCE</option>
-            <option>MEG</option>
-          </select>
-        </div>
-
-        <div class="full">
-          <textarea placeholder="Additional Information"></textarea>
-        </div>
-
-        <div class="full">
-          <button class="submit-btn" type="submit">Register Student</button>
-        </div>
-
-      </form>
     </div>
+
   </section>
+
+  <!-- FOOTER -->
 
   <footer>
-    © 2026 ASPADE Ngororero Secondary School • Designed with modern technology.
+    © 2026 ASPADE Ngororero Secondary School • Modern Educational Website
   </footer>
 
   <script>
-    const form = document.getElementById('registrationForm');
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
+    // NAVBAR BACKGROUND ON SCROLL
 
-      alert('Student registered successfully!');
-      form.reset();
-    });
+    window.addEventListener('scroll',()=>{
 
-    window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
 
       if(window.scrollY > 50){
-        nav.style.background = 'rgba(0,0,0,0.7)';
-      } else {
-        nav.style.background = 'rgba(0,0,0,0.35)';
+
+        nav.style.background = 'rgba(0,0,0,0.75)';
+
+      }else{
+
+        nav.style.background = 'rgba(0,0,0,0.3)';
+
       }
+
     });
+
   </script>
 
 </body>
