@@ -28,6 +28,40 @@
       --card:rgba(255,255,255,0.05);
       --text:#dbe6f0;
     }
+    .popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.popup-content {
+  background: white;
+  width: 320px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.popup-content button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#closeBtn {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
 
     body{
       background:var(--dark);
@@ -493,6 +527,25 @@
   </style>
 </head>
 <body>
+  <script>
+  // show after 7 seconds
+  setTimeout(function () {
+    document.getElementById("subscribePopup").style.display = "block";
+  }, 7000);
+
+  // close popup
+  document.getElementById("closeBtn").onclick = function () {
+    document.getElementById("subscribePopup").style.display = "none";
+  };
+
+  // close when clicking outside
+  window.onclick = function (event) {
+    let popup = document.getElementById("subscribePopup");
+    if (event.target === popup) {
+      popup.style.display = "none";
+    }
+  };
+</script>
 
   <!-- NAVBAR -->
 
@@ -662,7 +715,18 @@
         <div class="combo-title">
           Mathematics • Computer Science • Economics
         </div>
-
+        
+<!-- Subscription Popup -->
+<div id="subscribePopup" class="popup">
+  <div class="popup-content">
+    <span id="closeBtn">&times;</span>
+    <h2>Subscribe to our YouTube Channel</h2>
+    <p>Support us by subscribing for more updates 🚀</p>
+    <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank">
+      <button>Subscribe Now</button>
+    </a>
+  </div>
+</div>
         <p>
           MCE is designed for students interested in technology,
           software development, innovation, and business.
