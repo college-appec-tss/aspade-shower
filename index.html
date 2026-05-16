@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+correct it add add all those without destroying anything <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta name="google-site-verification" content="si-0ppxEBrg3Gla-h9QT-iys1ylglCHIRYimhJE8mis" />
@@ -545,6 +545,30 @@
       popup.style.display = "none";
     }
   };
+    <script>
+  // show second popup after 2 minutes
+  setTimeout(function () {
+    document.getElementById("secondPopup").style.display = "block";
+  }, 120000);
+
+  // close second popup
+  document.getElementById("closeSecondBtn").onclick = function () {
+    document.getElementById("secondPopup").style.display = "none";
+  };
+</script>
+    <!-- Second Popup -->
+<div id="secondPopup" class="popup">
+  <div class="popup-content">
+    <span id="closeSecondBtn">&times;</span>
+
+    <h2>Need More Information?</h2>
+    <p>Visit our learning platform to start studing courses offered by aspade like programming.</p>
+
+    <a href="https://college-appec-tss.github.io/aspade_ngororero/" target="_blank">
+      <button class="btn website-btn">stdy now</button>
+    </a>
+  </div>
+</div>
 </script>
 
   <!-- NAVBAR -->
