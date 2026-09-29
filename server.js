@@ -37,6 +37,7 @@ app.post("/api/visitor", (req, res) => {
     res.json({ success: true });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
     console.log(`ASPADE server running on port ${PORT}`);
 });
+
