@@ -879,5 +879,102 @@
 
   </script>
 
+<style>
+#visitorPopup {
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:rgba(0,0,0,.75);
+}
+#visitorPopupBox {
+    width:min(90%,380px);
+    background:white;
+    color:#111;
+    padding:25px;
+    border-radius:16px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+#visitorPopupBox input {
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+#visitorPopupBox button {
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:0;
+    border-radius:8px;
+    background:#0084ff;
+    color:white;
+    cursor:pointer;
+}
+#visitorClose {
+    float:right;
+    cursor:pointer;
+    font-size:24px;
+}
+</style>
+
+<div id="visitorPopup">
+    <div id="visitorPopupBox">
+        <span id="visitorClose">&times;</span>
+        <h2>Welcome to ASPADE</h2>
+        <p>If you would like to stay connected with ASPADE, please provide your name and phone number.</p>
+
+        <form id="visitorForm">
+            <input type="text" id="visitorName" placeholder="Your name" required>
+            <input type="tel" id="visitorPhone" placeholder="Phone / WhatsApp" required>
+            <button type="submit">Submit</button>
+        </form>
+
+        <p id="visitorMessage"></p>
+    </div>
+</div>
+
+<script>
+setTimeout(() => {
+    document.getElementById("visitorPopup").style.display = "block";
+}, 10000);
+
+document.getElementById("visitorClose").onclick = () => {
+    document.getElementById("visitorPopup").style.display = "none";
+};
+
+document.getElementById("visitorForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("visitorName").value;
+    const phone = document.getElementById("visitorPhone").value;
+    const message = document.getElementById("visitorMessage");
+
+    try {
+        const response = await fetch("/api/visitor", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, phone })
+        });
+
+        if (!response.ok) {
+            throw new Error("Submission failed");
+        }
+
+        message.textContent = "Thank you! Your information has been received.";
+        document.getElementById("visitorForm").reset();
+
+    } catch (error) {
+        message.textContent = "Unable to submit. Please try again.";
+    }
+});
+</script>
 </body>
 </html>
+
