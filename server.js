@@ -8,11 +8,9 @@ app.use(express.json());
 app.use(express.static(__dirname));
 
 const PORT = process.env.PORT || 5000;
-
-const GITHUB_OWNER = "college-appec-tss";
-const GITHUB_REPO = "aspade-shower";
-const GITHUB_FILE = "visitors.json";
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const OWNER = "college-appec-tss";
+const REPO = "aspade-shower";
+const FILE = "visitors.json";
 
 app.post("/api/visitor", async (req, res) => {
     try {
@@ -24,52 +22,58 @@ app.post("/api/visitor", async (req, res) => {
             });
         }
 
-        if (!GITHUB_TOKEN) {
-            console.error("GITHUB_TOKEN is not configured");
+        const token = process.env.GITHUB_TOKEN;
+
+        if (!token) {
+            console.error("GITHUB_TOKEN is missing");
             return res.status(500).json({
-                error: "Server GitHub configuration is missing"
+                error: "GITHUB_TOKEN is missing in Render"
             });
         }
 
-        const apiUrl =
-            `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+        const url =
+            `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`;
 
         const headers = {
             "Accept": "application/vnd.github+json",
-            "Authorization": `Bearer ${GITHUB_TOKEN}`,
+            "Authorization": `Bearer ${token}`,
             "X-GitHub-Api-Version": "2022-11-28",
             "User-Agent": "ASPADE-Visitor-System"
         };
 
+        const getResponse = await fetch(url, { headers });
+
         let visitors = [];
         let sha = null;
 
-        const getFile = await fetch(apiUrl, {
-            method: "GET",
-            headers
-        });
-
-        if (getFile.ok) {
-            const fileData = await getFile.json();
-
-            sha = fileData.sha;
+        if (getResponse.ok) {
+            const file = await getResponse.json();
+            sha = file.sha;
 
             const decoded = Buffer.from(
-                fileData.content.replace(/\n/g, ""),
+                file.content.replace(/\n/g, ""),
                 "base64"
             ).toString("utf8");
 
-            try {
-                visitors = JSON.parse(decoded);
-            } catch {
+            visitors = JSON.parse(decoded);
+
+            if (!Array.isArray(visitors)) {
                 visitors = [];
             }
-        } else if (getFile.status !== 404) {
-            const errorText = await getFile.text();
-            console.error("GitHub GET error:", errorText);
+
+        } else if (getResponse.status !== 404) {
+            const errorText = await getResponse.text();
+
+            console.error(
+                "GitHub READ ERROR:",
+                getResponse.status,
+                errorText
+            );
 
             return res.status(500).json({
-                error: "Could not read visitor file"
+                error: "GitHub read failed",
+                githubStatus: getResponse.status,
+                details: errorText
             });
         }
 
@@ -79,49 +83,56 @@ app.post("/api/visitor", async (req, res) => {
             submittedAt: new Date().toISOString()
         });
 
-        const newContent = Buffer.from(
+        const content = Buffer.from(
             JSON.stringify(visitors, null, 2)
         ).toString("base64");
 
-        const updateBody = {
-            message: `Add visitor submission - ${new Date().toISOString()}`,
-            content: newContent
+        const body = {
+            message: "Add ASPADE visitor",
+            content: content
         };
 
         if (sha) {
-            updateBody.sha = sha;
+            body.sha = sha;
         }
 
-        const updateFile = await fetch(apiUrl, {
+        const putResponse = await fetch(url, {
             method: "PUT",
             headers: {
                 ...headers,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(updateBody)
+            body: JSON.stringify(body)
         });
 
-        if (!updateFile.ok) {
-            const errorText = await updateFile.text();
-            console.error("GitHub PUT error:", errorText);
+        if (!putResponse.ok) {
+            const errorText = await putResponse.text();
+
+            console.error(
+                "GitHub WRITE ERROR:",
+                putResponse.status,
+                errorText
+            );
 
             return res.status(500).json({
-                error: "Could not save visitor to GitHub"
+                error: "GitHub write failed",
+                githubStatus: putResponse.status,
+                details: errorText
             });
         }
 
-        console.log("Visitor saved to GitHub:", name);
+        console.log("Visitor successfully saved:", name);
 
         res.json({
-            success: true,
-            message: "Visitor saved successfully"
+            success: true
         });
 
     } catch (error) {
-        console.error("Visitor submission error:", error);
+        console.error("SERVER ERROR:", error);
 
         res.status(500).json({
-            error: "Server error while saving visitor"
+            error: "Server error",
+            details: error.message
         });
     }
 });
