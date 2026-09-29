@@ -528,51 +528,53 @@
   </style>
 </head>
 <body>
-  <script>
-  // show after 7 seconds
-  setTimeout(function () {
-    document.getElementById("subscribePopup").style.display = "block";
-  }, 7000);
+<script>
+setTimeout(function(){
+    const popup=document.getElementById("subscribePopup");
+    if(popup) popup.style.display="block";
+},7000);
 
-  // close popup
-  document.getElementById("closeBtn").onclick = function () {
-    document.getElementById("subscribePopup").style.display = "none";
-  };
+const closeBtn=document.getElementById("closeBtn");
+if(closeBtn){
+    closeBtn.onclick=function(){
+        const popup=document.getElementById("subscribePopup");
+        if(popup) popup.style.display="none";
+    };
+}
 
-  // close when clicking outside
-  window.onclick = function (event) {
-    let popup = document.getElementById("subscribePopup");
-    if (event.target === popup) {
-      popup.style.display = "none";
+window.addEventListener("click",function(event){
+    const popup=document.getElementById("subscribePopup");
+    if(popup && event.target===popup){
+        popup.style.display="none";
     }
-  };
-    <script>
-  // show second popup after 2 minutes
-  setTimeout(function () {
-    document.getElementById("secondPopup").style.display = "block";
-  }, 120000);
+});
 
-  // close second popup
-  document.getElementById("closeSecondBtn").onclick = function () {
-    document.getElementById("secondPopup").style.display = "none";
-  };
+setTimeout(function(){
+    const popup=document.getElementById("secondPopup");
+    if(popup) popup.style.display="block";
+},120000);
+
+const closeSecondBtn=document.getElementById("closeSecondBtn");
+if(closeSecondBtn){
+    closeSecondBtn.onclick=function(){
+        const popup=document.getElementById("secondPopup");
+        if(popup) popup.style.display="none";
+    };
+});
 </script>
-    <!-- Second Popup -->
+
+<!-- Second Popup -->
 <div id="secondPopup" class="popup">
   <div class="popup-content">
     <span id="closeSecondBtn">&times;</span>
-
     <h2>Need More Information?</h2>
     <p>Visit our learning platform to start studing courses offered by aspade like programming.</p>
-
     <a href="https://college-appec-tss.github.io/aspade_ngororero/" target="_blank">
       <button class="btn website-btn">stdy now</button>
     </a>
   </div>
 </div>
-</script>
-
-  <!-- NAVBAR -->
+<!-- NAVBAR -->
 
   <nav>
 
@@ -934,5 +936,6 @@ document.getElementById("visitorForm").addEventListener("submit",async function(
 });
 </script></body>
 </html>
+
 
 
