@@ -529,25 +529,7 @@
 </head>
 <body>
 <script>
-setTimeout(function(){
-    const popup=document.getElementById("subscribePopup");
-    if(popup) popup.style.display="block";
-},7000);
 
-const closeBtn=document.getElementById("closeBtn");
-if(closeBtn){
-    closeBtn.onclick=function(){
-        const popup=document.getElementById("subscribePopup");
-        if(popup) popup.style.display="none";
-    };
-}
-
-window.addEventListener("click",function(event){
-    const popup=document.getElementById("subscribePopup");
-    if(popup && event.target===popup){
-        popup.style.display="none";
-    }
-});
 
 setTimeout(function(){
     const popup=document.getElementById("secondPopup");
@@ -743,17 +725,7 @@ if(closeSecondBtn){
           Mathematics â€¢ Computer Science â€¢ Economics
         </div>
         
-<!-- Subscription Popup -->
-<div id="subscribePopup" class="popup">
-  <div class="popup-content">
-    <span id="closeBtn">&times;</span>
-    <h2>Subscribe to our YouTube Channel</h2>
-    <p>Support us by subscribing for more updates ðŸš€</p>
-    <a href="https://www.youtube.com/@DushTheo-q1s" target="_blank">
-      <button>Subscribe Now</button>
-    </a>
-  </div>
-</div>
+
         <p>
           MCE is designed for students interested in technology,
           software development, innovation, and business.
@@ -1031,6 +1003,7 @@ form.addEventListener("submit",async function(e){
 </script>
 </body>
 </html>
+
 
 
 
