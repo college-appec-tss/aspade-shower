@@ -1,16 +1,44 @@
- <!DOCTYPE html>
+```html
+<!DOCTYPE html>
 <html lang="en">
-<head><link rel="icon" type="image/x-icon" href="favicon.ico">
- <script defer src="https://cloud.umami.is/script.js" data-website-id="8547ec4e-ed6a-41b7-bc25-7f83ee7db978"></script>
-  <meta name="google-site-verification" content="si-0ppxEBrg3Gla-h9QT-iys1ylglCHIRYimhJE8mis" />
+<head>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script defer src="https://cloud.umami.is/script.js"
+    data-website-id="8547ec4e-ed6a-41b7-bc25-7f83ee7db978"></script>
+
+  <meta name="google-site-verification"
+    content="si-0ppxEBrg3Gla-h9QT-iys1ylglCHIRYimhJE8mis" />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>ASPADE Ngororero Secondary School</title>
+
+  <!-- =========================
+       ADCASH
+  ========================== -->
+
+  <script id="aclib" type="text/javascript"
+    src="//acscdn.com/script/aclib.js"></script>
+
+  <script type="text/javascript">
+    aclib.runAutoTag({
+      zoneId: 'fqevbjjqsa',
+    });
+  </script>
+
+  <!-- =========================
+       GOOGLE FONTS
+  ========================== -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <style>
 
@@ -29,48 +57,47 @@
       --card:rgba(255,255,255,0.05);
       --text:#dbe6f0;
     }
+
     .popup {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-}
+      display:none;
+      position:fixed;
+      z-index:1000;
+      inset:0;
+      background:rgba(0,0,0,0.7);
+    }
 
-.popup-content {
-  background: white;
-  width: 320px;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+    .popup-content {
+      background:white;
+      width:320px;
+      padding:20px;
+      border-radius:10px;
+      text-align:center;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+    }
 
-.popup-content button {
-  background: red;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-}
+    .popup-content button {
+      background:red;
+      color:white;
+      border:none;
+      padding:10px 20px;
+      cursor:pointer;
+      border-radius:5px;
+    }
 
-#closeBtn {
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
-}
+    #closeBtn {
+      float:right;
+      font-size:28px;
+      cursor:pointer;
+    }
 
     body{
       background:var(--dark);
       color:white;
       overflow-x:hidden;
     }
-
-    /* BACKGROUND LIGHTS */
 
     body::before{
       content:"";
@@ -160,7 +187,7 @@
       width:100%;
     }
 
-    /* HERO SECTION */
+    /* HERO */
 
     .hero{
       min-height:100vh;
@@ -223,7 +250,7 @@
       color:black;
     }
 
-    /* HERO IMAGE SLIDER */
+    /* HERO IMAGE */
 
     .hero-image{
       position:relative;
@@ -282,6 +309,7 @@
     }
 
     /* ADVERTISEMENT */
+
     .ad-container{
       width:100%;
       display:flex;
@@ -536,490 +564,690 @@
 
   </style>
 </head>
+
 <body>
+
+<!-- =========================
+     SECOND POPUP
+========================== -->
+
 <script>
-
-
 setTimeout(function(){
-    const popup=document.getElementById("secondPopup");
-    if(popup) popup.style.display="block";
+  const popup=document.getElementById("secondPopup");
+  if(popup) popup.style.display="block";
 },120000);
 
 const closeSecondBtn=document.getElementById("closeSecondBtn");
+
 if(closeSecondBtn){
-    closeSecondBtn.onclick=function(){
-        const popup=document.getElementById("secondPopup");
-        if(popup) popup.style.display="none";
-    };
-};
+  closeSecondBtn.onclick=function(){
+    const popup=document.getElementById("secondPopup");
+    if(popup) popup.style.display="none";
+  };
+}
 </script>
 
-<!-- Second Popup -->
 <div id="secondPopup" class="popup">
+
   <div class="popup-content">
+
     <span id="closeSecondBtn">&times;</span>
+
     <h2>Need More Information?</h2>
-    <p>Visit our learning platform to start studing courses offered by aspade like programming.</p>
-    <a href="https://college-appec-tss.github.io/aspade_ngororero/" target="_blank">
-      <button class="btn website-btn">stdy now</button>
+
+    <p>
+      Visit our learning platform to start studying courses offered by
+      ASPADE like programming.
+    </p>
+
+    <a
+      href="https://college-appec-tss.github.io/aspade_ngororero/"
+      target="_blank"
+      rel="noopener"
+    >
+      <button class="btn website-btn">Study Now</button>
     </a>
+
   </div>
+
 </div>
-<!-- NAVBAR -->
 
-  <nav>
+<!-- =========================
+     NAVBAR
+========================== -->
 
-    <div class="logo">
-      <h1>ASPADE</h1>
-      <p>Ngororero Secondary School</p>
-    </div>
+<nav>
 
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#levels">Levels</a></li>
-      <li><a href="#combinations">Combinations</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-  </nav>
-
-  <!-- HERO -->
-
-  <section class="hero" id="home">
-
-    <div class="hero-text">
-
-      <h2>
-        Building Future
-        <span>Leaders</span>
-      </h2>
-
-      <p>
-        ASPADE Ngororero Secondary School provides quality education,
-        discipline, technology-focused learning, and modern teaching methods
-        for O'Level and Advanced Level students.
-      </p>
-
-      <div class="buttons">
-        <a href="#combinations" class="btn btn-primary">Explore Combinations</a>
-
-        <a href="#contact" class="btn btn-secondary">Contact School</a>
-      </div>
-
-    </div>
-
-    <div class="hero-image">
-
-      <img src="aspade1.jpg" alt="School">
-
-      <img src="aspade2.jpg" alt="Students">
-
-      <img src="aspade3.jpg" alt="Classroom">
-
-    </div>
-
-  </section>
-
-  <!-- ABOUT -->
-
-  <section id="about">
-
-    <div class="title">
-      <h2>About ASPADE</h2>
-
-      <p>
-        Empowering students through education, discipline, and innovation.
-      </p>
-    </div>
-
-    <div class="about-box">
-
-      ASPADE Ngororero Secondary School is committed to preparing students
-      for university studies, leadership, innovation, and modern careers.
-      The school promotes academic excellence, discipline, creativity,
-      computer literacy, and personal growth through a supportive learning environment.
-
-    </div>
-
-    <div class="stats">
-
-      <div class="stat-card">
-        <h3>500+</h3>
-        <p>Students</p>
-      </div>
-
-      <div class="stat-card">
-        <h3>20+</h3>
-        <p>Qualified Teachers</p>
-      </div>
-
-      <div class="stat-card">
-        <h3>2</h3>
-        <p>Advanced Combinations</p>
-      </div>
-
-      <div class="stat-card">
-        <h3>100%</h3>
-        <p>Student Support</p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ADVERTISEMENT -->
-  <div class="ad-container">
-    <script async="async" data-cfasync="false" src="https://pl31599133.profitableratecpmnetwork.com/818e9c1ff9ae2f31dadea6af07b63337/invoke.js"></script>
-    <div id="container-818e9c1ff9ae2f31dadea6af07b63337"></div>
+  <div class="logo">
+    <h1>ASPADE</h1>
+    <p>Ngororero Secondary School</p>
   </div>
 
-  <!-- LEVELS -->
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#levels">Levels</a></li>
+    <li><a href="#combinations">Combinations</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 
-  <section id="levels">
+</nav>
 
-    <div class="title">
-      <h2>School Levels</h2>
+<!-- =========================
+     HERO
+========================== -->
 
-      <p>
-        Quality learning pathways designed for student success.
-      </p>
-    </div>
+<section class="hero" id="home">
 
-    <div class="levels">
+  <div class="hero-text">
 
-      <div class="level-card">
+    <h2>
+      Building Future
+      <span>Leaders</span>
+    </h2>
 
-        <h3>O'Level</h3>
+    <p>
+      ASPADE Ngororero Secondary School provides quality education,
+      discipline, technology-focused learning, and modern teaching methods
+      for O'Level and Advanced Level students.
+    </p>
 
-        <p>
-          Strong foundation in Mathematics, Sciences,
-          ICT, Languages, and Humanities to prepare students
-          for Advanced Level education.
-        </p>
+    <div class="buttons">
 
-      </div>
+      <a href="#combinations" class="btn btn-primary">
+        Explore Combinations
+      </a>
 
-      <div class="level-card">
-
-        <h3>Advanced Level</h3>
-
-        <p>
-          Specialized combinations including MCE and MEG
-          help students develop analytical, technological,
-          and business-related skills.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- COMBINATIONS -->
-
-  <section id="combinations">
-
-    <div class="title">
-      <h2>Academic Combinations</h2>
-
-      <p>
-        Choose the best pathway for your future career.
-      </p>
-    </div>
-
-    <div class="combo-grid">
-
-      <!-- MCE -->
-
-      <div class="combo-card">
-
-        <div class="combo-name">MCE</div>
-
-        <div class="combo-title">
-          Mathematics â€¢ Computer Science â€¢ Economics
-        </div>
-        
-
-        <p>
-          MCE is designed for students interested in technology,
-          software development, innovation, and business.
-        </p>
-
-        <div class="skills">
-
-          <div class="skill programming">C Programming</div>
-
-          <div class="skill programming">C++ Programming</div>
-
-          <div class="skill">Web Development</div>
-
-          <div class="skill">Computer Applications</div>
-
-          <div class="skill">Economics</div>
-
-          <div class="skill">Mathematics</div>
-
-        </div>
-
-      </div>
-
-      <!-- MEG -->
-
-      <div class="combo-card">
-
-        <div class="combo-name">MEG</div>
-
-        <div class="combo-title">
-          Mathematics â€¢ Economics â€¢ Geography
-        </div>
-
-        <p>
-          MEG prepares students for careers in economics,
-          finance, statistics, development studies,
-          and business management.
-        </p>
-
-        <div class="skills">
-
-          <div class="skill">Statistics</div>
-
-          <div class="skill">Economic Analysis</div>
-
-          <div class="skill">Research Skills</div>
-
-          <div class="skill">Map Reading</div>
-
-          <div class="skill">Business Studies</div>
-
-          <div class="skill">Mathematics</div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-
-  <section id="contact">
-
-    <div class="title">
-      <h2>Contact Information</h2>
-
-      <p>
-        Reach out to ASPADE Ngororero Secondary School.
-      </p>
-    </div>
-
-    <div class="contact-grid">
-
-      <div class="contact-card">
-        <h3>Location</h3>
-        <p>
-          Ngororero District, Rwanda
-        </p>
-      </div>
-
-      <div class="contact-card">
-        <h3>Email</h3>
-        <p>
-          aspade@example.com
-        </p>
-      </div>
-
-      <div class="contact-card">
-        <h3>Phone</h3>
-        <p>
-          +250 7XX XXX XXX
-        </p>
-      </div>
+      <a href="#contact" class="btn btn-secondary">
+        Contact School
+      </a>
 
     </div>
 
-  </section>
+  </div>
 
-  <!-- FOOTER -->
+  <div class="hero-image">
 
-  <footer>
-    Â© 2026 ASPADE Ngororero Secondary School â€¢ Modern Educational Website
-  </footer>
+    <img src="aspade1.jpg" alt="ASPADE school">
 
-  <script>
+    <img src="aspade2.jpg" alt="ASPADE students">
 
-    // NAVBAR BACKGROUND ON SCROLL
+    <img src="aspade3.jpg" alt="ASPADE classroom">
 
-    window.addEventListener('scroll',()=>{
+  </div>
 
-      const nav = document.querySelector('nav');
+</section>
 
-      if(window.scrollY > 50){
+<!-- =========================
+     ABOUT
+========================== -->
 
-        nav.style.background = 'rgba(0,0,0,0.75)';
+<section id="about">
 
-      }else{
+  <div class="title">
 
-        nav.style.background = 'rgba(0,0,0,0.3)';
+    <h2>About ASPADE</h2>
 
-      }
+    <p>
+      Empowering students through education, discipline, and innovation.
+    </p>
 
-    });
+  </div>
 
+  <div class="about-box">
+
+    ASPADE Ngororero Secondary School is committed to preparing students
+    for university studies, leadership, innovation, and modern careers.
+    The school promotes academic excellence, discipline, creativity,
+    computer literacy, and personal growth through a supportive learning environment.
+
+  </div>
+
+  <div class="stats">
+
+    <div class="stat-card">
+      <h3>500+</h3>
+      <p>Students</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>20+</h3>
+      <p>Qualified Teachers</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>2</h3>
+      <p>Advanced Combinations</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>100%</h3>
+      <p>Student Support</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     EXISTING ADVERTISEMENT
+========================== -->
+
+<div class="ad-container">
+
+  <script
+    async="async"
+    data-cfasync="false"
+    src="https://pl31599133.profitableratecpmnetwork.com/818e9c1ff9ae2f31dadea6af07b63337/invoke.js">
   </script>
 
-<style>
-#visitorPopup{display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.75)}
-#visitorPopupBox{width:min(90%,380px);background:#fff;color:#111;padding:25px;border-radius:16px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-sizing:border-box}
-#visitorPopupBox input{width:100%;padding:12px;margin:8px 0;border:1px solid #ccc;border-radius:8px;box-sizing:border-box}
-#visitorPopupBox button{width:100%;padding:12px;margin-top:10px;border:0;border-radius:8px;background:#0084ff;color:#fff;cursor:pointer}
-#visitorClose{float:right;cursor:pointer;font-size:24px}
-</style>
-<div id="visitorPopup">
-<div id="visitorPopupBox">
-<span id="visitorClose">&times;</span>
-<h2>Welcome to ASPADE</h2>
-<p>If you would like to stay connected with ASPADE, please provide your name and phone number.</p>
-<form id="visitorForm">
-<input type="text" id="visitorName" placeholder="Your name" required>
-<input type="tel" id="visitorPhone" placeholder="Phone / WhatsApp" required>
-<button type="submit">Submit</button>
-</form>
-<p id="visitorMessage"></p>
+  <div id="container-818e9c1ff9ae2f31dadea6af07b63337"></div>
+
 </div>
-</div>
+
+<!-- =========================
+     LEVELS
+========================== -->
+
+<section id="levels">
+
+  <div class="title">
+
+    <h2>School Levels</h2>
+
+    <p>
+      Quality learning pathways designed for student success.
+    </p>
+
+  </div>
+
+  <div class="levels">
+
+    <div class="level-card">
+
+      <h3>O'Level</h3>
+
+      <p>
+        Strong foundation in Mathematics, Sciences,
+        ICT, Languages, and Humanities to prepare students
+        for Advanced Level education.
+      </p>
+
+    </div>
+
+    <div class="level-card">
+
+      <h3>Advanced Level</h3>
+
+      <p>
+        Specialized combinations including MCE and MEG
+        help students develop analytical, technological,
+        and business-related skills.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     COMBINATIONS
+========================== -->
+
+<section id="combinations">
+
+  <div class="title">
+
+    <h2>Academic Combinations</h2>
+
+    <p>
+      Choose the best pathway for your future career.
+    </p>
+
+  </div>
+
+  <div class="combo-grid">
+
+    <!-- MCE -->
+
+    <div class="combo-card">
+
+      <div class="combo-name">MCE</div>
+
+      <div class="combo-title">
+        Mathematics • Computer Science • Economics
+      </div>
+
+      <p>
+        MCE is designed for students interested in technology,
+        software development, innovation, and business.
+      </p>
+
+      <div class="skills">
+
+        <div class="skill programming">C Programming</div>
+        <div class="skill programming">C++ Programming</div>
+        <div class="skill">Web Development</div>
+        <div class="skill">Computer Applications</div>
+        <div class="skill">Economics</div>
+        <div class="skill">Mathematics</div>
+
+      </div>
+
+    </div>
+
+    <!-- MEG -->
+
+    <div class="combo-card">
+
+      <div class="combo-name">MEG</div>
+
+      <div class="combo-title">
+        Mathematics • Economics • Geography
+      </div>
+
+      <p>
+        MEG prepares students for careers in economics,
+        finance, statistics, development studies,
+        and business management.
+      </p>
+
+      <div class="skills">
+
+        <div class="skill">Statistics</div>
+        <div class="skill">Economic Analysis</div>
+        <div class="skill">Research Skills</div>
+        <div class="skill">Map Reading</div>
+        <div class="skill">Business Studies</div>
+        <div class="skill">Mathematics</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     CONTACT
+========================== -->
+
+<section id="contact">
+
+  <div class="title">
+
+    <h2>Contact Information</h2>
+
+    <p>
+      Reach out to ASPADE Ngororero Secondary School.
+    </p>
+
+  </div>
+
+  <div class="contact-grid">
+
+    <div class="contact-card">
+
+      <h3>Location</h3>
+
+      <p>
+        Ngororero District, Rwanda
+      </p>
+
+    </div>
+
+    <div class="contact-card">
+
+      <h3>Email</h3>
+
+      <p>
+        aspade@example.com
+      </p>
+
+    </div>
+
+    <div class="contact-card">
+
+      <h3>Phone</h3>
+
+      <p>
+        +250 7XX XXX XXX
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+  © 2026 ASPADE Ngororero Secondary School •
+  Modern Educational Website
+
+</footer>
+
+<!-- =========================
+     NAVBAR SCROLL
+========================== -->
+
 <script>
+
+window.addEventListener('scroll',()=>{
+
+  const nav=document.querySelector('nav');
+
+  if(window.scrollY>50){
+
+    nav.style.background='rgba(0,0,0,0.75)';
+
+  }else{
+
+    nav.style.background='rgba(0,0,0,0.3)';
+
+  }
+
+});
+
+</script>
+
+<!-- =========================
+     VISITOR POPUP
+========================== -->
+
+<style>
+
+#visitorPopup{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  background:rgba(0,0,0,.75);
+}
+
+#visitorPopupBox{
+  width:min(90%,380px);
+  background:#fff;
+  color:#111;
+  padding:25px;
+  border-radius:16px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  box-sizing:border-box;
+}
+
+#visitorPopupBox input{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border:1px solid #ccc;
+  border-radius:8px;
+  box-sizing:border-box;
+}
+
+#visitorPopupBox button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:0;
+  border-radius:8px;
+  background:#0084ff;
+  color:#fff;
+  cursor:pointer;
+}
+
+#visitorClose{
+  float:right;
+  cursor:pointer;
+  font-size:24px;
+}
+
+</style>
+
+<div id="visitorPopup">
+
+  <div id="visitorPopupBox">
+
+    <span id="visitorClose">&times;</span>
+
+    <h2>Welcome to ASPADE</h2>
+
+    <p>
+      If you would like to stay connected with ASPADE,
+      please provide your name and phone number.
+    </p>
+
+    <form id="visitorForm">
+
+      <input
+        type="text"
+        id="visitorName"
+        placeholder="Your name"
+        required
+      >
+
+      <input
+        type="tel"
+        id="visitorPhone"
+        placeholder="Phone / WhatsApp"
+        required
+      >
+
+      <button type="submit">
+        Submit
+      </button>
+
+    </form>
+
+    <p id="visitorMessage"></p>
+
+  </div>
+
+</div>
+
+<script>
+
 (function(){
 
-const popup=document.getElementById("visitorPopup");
-const closeBtn=document.getElementById("visitorClose");
-const form=document.getElementById("visitorForm");
-const nameInput=document.getElementById("visitorName");
-const phoneInput=document.getElementById("visitorPhone");
-const submitBtn=form.querySelector('button[type="submit"]');
-const message=document.getElementById("visitorMessage");
+  const popup=document.getElementById("visitorPopup");
+  const closeBtn=document.getElementById("visitorClose");
+  const form=document.getElementById("visitorForm");
+  const nameInput=document.getElementById("visitorName");
+  const phoneInput=document.getElementById("visitorPhone");
+  const submitBtn=form.querySelector('button[type="submit"]');
+  const message=document.getElementById("visitorMessage");
 
-function showMessage(text,type){
+  function showMessage(text,type){
+
     message.textContent=text;
     message.className=type;
-}
 
-function openPopup(){
+  }
+
+  function openPopup(){
+
     popup.style.display="flex";
     nameInput.focus();
-}
 
-function closePopup(){
+  }
+
+  function closePopup(){
+
     popup.style.display="none";
-}
 
-setTimeout(openPopup,10000);
+  }
 
-closeBtn.onclick=closePopup;
+  setTimeout(openPopup,10000);
 
-popup.addEventListener("click",function(e){
+  closeBtn.onclick=closePopup;
+
+  popup.addEventListener("click",function(e){
+
     if(e.target===popup){
-        closePopup();
-    }
-});
 
-document.addEventListener("keydown",function(e){
+      closePopup();
+
+    }
+
+  });
+
+  document.addEventListener("keydown",function(e){
+
     if(e.key==="Escape" && popup.style.display==="flex"){
-        closePopup();
-    }
-});
 
-form.addEventListener("submit",async function(e){
+      closePopup();
+
+    }
+
+  });
+
+  form.addEventListener("submit",async function(e){
 
     e.preventDefault();
 
     if(submitBtn.disabled){
-        return;
+
+      return;
+
     }
 
     const name=nameInput.value.trim();
     const phone=phoneInput.value.trim();
 
     if(!name){
-        showMessage("Please enter your name.","error");
-        nameInput.focus();
-        return;
+
+      showMessage(
+        "Please enter your name.",
+        "error"
+      );
+
+      nameInput.focus();
+
+      return;
+
     }
 
     if(!phone){
-        showMessage("Please enter your phone or WhatsApp number.","error");
-        phoneInput.focus();
-        return;
+
+      showMessage(
+        "Please enter your phone or WhatsApp number.",
+        "error"
+      );
+
+      phoneInput.focus();
+
+      return;
+
     }
 
     submitBtn.disabled=true;
     submitBtn.textContent="Sending...";
     submitBtn.setAttribute("aria-busy","true");
 
-    showMessage("Sending your information...","sending");
+    showMessage(
+      "Sending your information...",
+      "sending"
+    );
 
     try{
 
-        const response=await fetch(
-            "https://aspade-shower.onrender.com/api/visitor",
-            {
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body:JSON.stringify({
-                    name:name,
-                    phone:phone
-                })
-            }
-        );
-
-        const result=await response.json().catch(function(){
-            return {};
-        });
-
-        if(!response.ok){
-            throw new Error(result.error || "Submission failed");
+      const response=await fetch(
+        "https://aspade-shower.onrender.com/api/visitor",
+        {
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify({
+            name:name,
+            phone:phone
+          })
         }
+      );
 
-        showMessage(
-            "✓ Thank you! Your information has been received successfully.",
-            "success"
+      const result=await response.json().catch(function(){
+
+        return {};
+
+      });
+
+      if(!response.ok){
+
+        throw new Error(
+          result.error || "Submission failed"
         );
 
-        form.reset();
+      }
 
-        submitBtn.textContent="Submitted ✓";
+      showMessage(
+        "✓ Thank you! Your information has been received successfully.",
+        "success"
+      );
 
-        setTimeout(function(){
-            closePopup();
-            submitBtn.disabled=false;
-            submitBtn.removeAttribute("aria-busy");
-            submitBtn.textContent="Submit";
-        },2500);
+      form.reset();
+
+      submitBtn.textContent="Submitted ✓";
+
+      setTimeout(function(){
+
+        closePopup();
+
+        submitBtn.disabled=false;
+
+        submitBtn.removeAttribute("aria-busy");
+
+        submitBtn.textContent="Submit";
+
+      },2500);
 
     }catch(error){
 
-        console.error("Visitor submission error:",error);
+      console.error(
+        "Visitor submission error:",
+        error
+      );
 
-        showMessage(
-            "⚠ Unable to submit right now. Please try again.",
-            "error"
-        );
+      showMessage(
+        "⚠ Unable to submit right now. Please try again.",
+        "error"
+      );
 
-        submitBtn.disabled=false;
-        submitBtn.removeAttribute("aria-busy");
-        submitBtn.textContent="Try Again";
+      submitBtn.disabled=false;
+
+      submitBtn.removeAttribute("aria-busy");
+
+      submitBtn.textContent="Try Again";
+
     }
 
-});
+  });
 
 })();
+
 </script>
 
- <a>https://www.profitableratecpmnetwork.com/d0ug7ikz7?key=a3aa78015b0314a0b3e7af04ef780231</a>
- <script src="https://pl31599135.profitableratecpmnetwork.com/59/4b/84/594b849876fa97bd78837552c212769c.js"></script>
- <script>
+<!-- =========================
+     EXISTING PROFITABLE RATE CPM
+========================== -->
+
+<script
+  src="https://pl31599135.profitableratecpmnetwork.com/59/4b/84/594b849876fa97bd78837552c212769c.js">
+</script>
+
+<!-- =========================
+     HIGH REVENUE FORMAT - 468x60
+========================== -->
+
+<script>
+
   atOptions = {
     'key' : '028ee6e47d3994ca3215867e309c28fc',
     'format' : 'iframe',
@@ -1027,9 +1255,19 @@ form.addEventListener("submit",async function(e){
     'width' : 468,
     'params' : {}
   };
+
 </script>
-<script src="https://www.highrevenueformat.com/028ee6e47d3994ca3215867e309c28fc/invoke.js"></script>
- <script>
+
+<script
+  src="https://www.highrevenueformat.com/028ee6e47d3994ca3215867e309c28fc/invoke.js">
+</script>
+
+<!-- =========================
+     HIGH REVENUE FORMAT - 300x250
+========================== -->
+
+<script>
+
   atOptions = {
     'key' : '363c1cc9d8a981f40572b880c613d433',
     'format' : 'iframe',
@@ -1037,7 +1275,13 @@ form.addEventListener("submit",async function(e){
     'width' : 300,
     'params' : {}
   };
+
 </script>
-<script src="https://www.highrevenueformat.com/363c1cc9d8a981f40572b880c613d433/invoke.js"></script>
+
+<script
+  src="https://www.highrevenueformat.com/363c1cc9d8a981f40572b880c613d433/invoke.js">
+</script>
+
 </body>
 </html>
+```
